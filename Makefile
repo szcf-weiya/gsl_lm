@@ -1,2 +1,2 @@
 lm: lm.cpp
-	g++ lm.cpp -o lm $(gsl-config --libs)
+	g++ lm.cpp -o lm $(shell gsl-config --libs)

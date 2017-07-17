@@ -93,13 +93,13 @@ int lm(gsl_vector* y, size_t nrow_y, gsl_matrix* x, size_t nrow_x, size_t ncol_x
       gsl_multifit_linear_workspace *work = gsl_multifit_linear_alloc(nrow_y, ncol_x + 1);
       gsl_multifit_linear(X, y, coef, cov, &chisq, work);
       gsl_multifit_linear_free(work);
-      double stderr[ncol_x+1], pvalue[ncol_x+1], t[ncol_x+1];
+      double stderrArray[ncol_x+1], pvalue[ncol_x+1], t[ncol_x+1];
       df = nrow_y - ncol_x - 1;
       
       for (size_t i = 0; i < ncol_x+1; i++)
 	{
-	  stderr[i] = sqrt(gsl_matrix_get(cov, i, i));
-	  t[i] = gsl_vector_get(coef, i)/stderr[i];
+	  stderrArray[i] = sqrt(gsl_matrix_get(cov, i, i));
+	  t[i] = gsl_vector_get(coef, i)/stderrArray[i];
 	  pvalue[i] = 2*(t[i] < 0 ? (1 - gsl_cdf_tdist_P(-t[i], df)) : (1 - gsl_cdf_tdist_P(t[i], df)));
 	}
       
@@ -109,9 +109,9 @@ int lm(gsl_vector* y, size_t nrow_y, gsl_matrix* x, size_t nrow_x, size_t ncol_x
       F = ((tss - chisq)/ncol_x)/(chisq/df);
       mpvalue = 1 - gsl_cdf_fdist_P(F, ncol_x, df);
       cout << "Coefficients\tEstimate\tStd. Error\tt value\tPr(>|t|)" << endl;
-      cout << "Intercept\t" << coef(0) << "\t" << stderr[0] << "\t" << t[0] << "\t" << pvalue[0] << endl;
+      cout << "Intercept\t" << coef(0) << "\t" << stderrArray[0] << "\t" << t[0] << "\t" << pvalue[0] << endl;
       for (size_t i = 1; i <= ncol_x; i++)
-	cout << "x" << i <<"\t" << coef(i) << "\t" << stderr[i] << "\t" << t[i] << "\t" << pvalue[i] << endl;
+	cout << "x" << i <<"\t" << coef(i) << "\t" << stderrArray[i] << "\t" << t[i] << "\t" << pvalue[i] << endl;
       
       cout << "Multiple R-squared: " << R2 << ",\tAdjusted R-squared: " << adjR2 << endl;
       cout << "F-statistic: " << F << " on 1 and " << nrow_y - 2 << " DF, p-value: " << mpvalue << endl;

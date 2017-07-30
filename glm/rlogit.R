@@ -1,3 +1,4 @@
+library(AER)
 data(Affairs, package='AER')
 summary(Affairs)
 
@@ -6,6 +7,14 @@ table(Affairs$affairs)
 ## the binary outcome is of interest
 Affairs$ynaffair[Affairs$affairs > 0] <- 1
 Affairs$ynaffair[Affairs$affairs == 0] <- 0
+
+
+## write data to file
+con <- file(description="ynaffair.dat", open="wb")
+writeBin(object=as.double(Affairs$ynaffair), con=con)
+close(con)
+
+
 Affairs$ynaffair <- factor(Affairs$ynaffair,
                            levels = c(0, 1),
                            labels = c("NO", "Yes"))
@@ -18,6 +27,17 @@ summary(fit.full)
 ## reduced model
 fit.reduced <- glm(ynaffair ~ age + yearsmarried + religiousness + rating, data = Affairs, family = binomial())
 summary(fit.reduced)
+
+## write data to file
+
+df <- as.matrix(Affairs[c(3,4,6,9)])
+N = 601
+con <- file(description="x.dat", open="wb")
+for(i in 1:N){
+    writeBin(object=as.vector(as.double(c(1, df[i,])), mode = "numeric"), con=con)
+}
+close(con)
+
 
 ## compare two model
 anova(fit.reduced, fit.full, test = 'Chisq')

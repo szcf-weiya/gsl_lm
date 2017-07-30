@@ -27,6 +27,9 @@ summary(fit.full)
 ## reduced model
 fit.reduced <- glm(ynaffair ~ age + yearsmarried + religiousness + rating, data = Affairs, family = binomial())
 summary(fit.reduced)
+fit.reduced <- glm(ynaffair ~ age + yearsmarried + religiousness + rating, data = Affairs, family = poisson)
+summary(fit.reduced)
+
 
 ## write data to file
 
@@ -88,4 +91,3 @@ pchisq(summary(fit.od)$dispersion * fit$df.residual,
        fit$df.residual, lower = F)
 
 ## The resulting p-value is clearly not significant, strengthening our belief that Overdispersion is not a problem.
-

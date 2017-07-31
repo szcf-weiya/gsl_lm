@@ -30,6 +30,7 @@ class logit
     void fit();
     double calculate_pi(gsl_vector* xi) const;
     double calculate_err(const gsl_vector* beta2) const;
+    double calculate_err() const;
     int calculate_J(gsl_matrix* J) const;
     int calculate_U(gsl_vector* U) const;
     void display(gsl_matrix* m) const;

@@ -40,16 +40,24 @@ int main()
 
   logit Affairs(y, X);
 
+
 /*
   double y_data[] = {0, 0, 0, 0, 1, 1, 1, 1, 1, 1};
   double x_data[] = {1, 10,25,1, 5, 27, 1, 8, 18,1,  11, 11,1, 12, 28, 1,14, 3,1,3, 6, 1,1, 30,1, 16, 26, 1,18, 22};
   gsl_vector_view y = gsl_vector_view_array(y_data, 10);
   gsl_matrix_view X = gsl_matrix_view_array(x_data, 10, 3);
+  logit Affairs(&y.vector, &X.matrix);
+*/
+/*
+  double y_data[] = {0, 0, 0, 0, 1, 1, 1, 1, 1, 1};
+  double x_data[] = {1, 11,1, 14, 1, 13, 1, 10,1,  15, 1,10, 1, 2, 1,4, 1,9, 1, 5};
+  gsl_vector_view y = gsl_vector_view_array(y_data, 10);
+  gsl_matrix_view X = gsl_matrix_view_array(x_data, 10, 2);
 
   logit Affairs(&y.vector, &X.matrix);
   */
-  cout << "Hello" << endl;
-  //gsl_vector_free(y);
-  //gsl_matrix_free(X);
+
+//  gsl_vector_free(y);
+//  gsl_matrix_free(X);
   return 0;
 }

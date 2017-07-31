@@ -1,12 +1,16 @@
 #include <iostream>
+
+#include "logit.h"
+
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_matrix.h>
 #include <gsl/gsl_blas.h>
 #include <gsl/gsl_linalg.h>
 using namespace std;
 
+#define ERR 0.0001
 // Xv contain intercept
-logit::logit(const gsl_vector *yv, const gsl_matrix *Xv)
+logit::logit(gsl_vector *yv, gsl_matrix *Xv)
 {
   free_data = false;
 
@@ -18,7 +22,17 @@ logit::logit(const gsl_vector *yv, const gsl_matrix *Xv)
 
   // initialize
   beta = gsl_vector_calloc(p);
-  gsl_vector_set_zero(beta);
+  Jbeta = gsl_vector_calloc(p);
+  //gsl_vector_set_zero(beta);
+  gsl_vector_set_all(beta, 1.0);
+  /*
+  gsl_vector_set(beta, 1, 1.5);
+  gsl_vector_set(beta, 4, -0.5);
+  double a[] = {1, 2, 3, 4, 5};
+  gsl_vector_view bb = gsl_vector_view_array(a, 5);
+  calculate_pi(&bb.vector);
+  */
+  fit();
 }
 
 // Xv does NOT contain the intercept
@@ -42,24 +56,35 @@ logit::logit(const std::vector<double> & yv, const std::vector<std::vector<doubl
   }
 }
 
-~logit()
+logit::~logit()
 {
-
+  if (free_data)
+  {
+    gsl_vector_free(y);
+    gsl_matrix_free(X);
+    gsl_vector_free(beta);
+    gsl_vector_free(Jbeta);
+  }
 }
 
 double logit::calculate_pi(gsl_vector* xi) const
 {
   gsl_vector_mul(xi, beta);
-  return(exp(xi)/(1+exp(xi)))
+  double res = 0;
+
+  for (size_t i = 0; i < p; i++)
+    res += gsl_vector_get(xi, i);
+  return(1.0/(1+exp(-1.0*res)));
 }
 
 int logit::calculate_J(gsl_matrix* J) const
 {
   double res, pii;
-  gsl_vector *xj, *xk, *pi_1_pi, *xi;
+  gsl_vector *xj, *xk, *pi_1_pi, *xi, *tmp;
   xj = gsl_vector_calloc(n);
   xk = gsl_vector_calloc(n);
   pi_1_pi = gsl_vector_calloc(n); // pi*(1-pi)
+  tmp = gsl_vector_calloc(n);
   xi = gsl_vector_calloc(p);
   for (size_t i = 0; i < n; i++)
   {
@@ -67,18 +92,22 @@ int logit::calculate_J(gsl_matrix* J) const
     pii = calculate_pi(xi);
     gsl_vector_set(pi_1_pi, i, pii*(1-pii));
   }
+
   for (size_t j = 0; j < p; j++)
   {
     for (size_t k = 0; k < p; k++)
     {
       res = 0;
+      // reset tmp to record results
+      gsl_vector_memcpy(tmp, pi_1_pi);
+
       gsl_matrix_get_col(xj, X, j);
       gsl_matrix_get_col(xk, X, k);
       // calculate
-      gsl_vector_mul(pi_1_pi, xj);
-      gsl_vector_mul(pi_1_pi, xk);
+      gsl_vector_mul(tmp, xj);
+      gsl_vector_mul(tmp, xk);
       for (size_t i = 0; i < n; i++)
-        res += gsl_vector_get(pi_1_pi, i);
+        res += gsl_vector_get(tmp, i);
       gsl_matrix_set(J, j, k, res);
     }
   }
@@ -87,32 +116,39 @@ int logit::calculate_J(gsl_matrix* J) const
   gsl_vector_free(xj);
   gsl_vector_free(xk);
   gsl_vector_free(pi_1_pi);
+  gsl_vector_free(tmp);
   return 1;
 }
 
 int logit::calculate_U(gsl_vector* U) const
 {
   double res;
-  gsl_vector *xj, *y_pi, *pi, *xi;
+  gsl_vector *xj, *y_pi, *pi, *xi, *tmp;
   xj = gsl_vector_calloc(n);
   y_pi = gsl_vector_calloc(n); // y-pi
+  tmp = gsl_vector_calloc(n);
+  pi = gsl_vector_calloc(n);
   xi = gsl_vector_calloc(p);
+
   gsl_vector_memcpy(y_pi, y);
   for (size_t i = 0; i < n; i++)
   {
-    gsl_matrix_get_row(X, i, xi);
+    gsl_matrix_get_row(xi, X, i);
     gsl_vector_set(pi, i, calculate_pi(xi));
   }
 
   for (size_t j = 0; j < p; j++)
   {
     res = 0;
+    // reset
+    gsl_vector_memcpy(tmp, y_pi);
+
     gsl_matrix_get_col(xj, X, j);
-    gsl_vector_sub(y_pi, pi);
-    gsl_vector_mul(y_pi, xj);
+    gsl_vector_sub(tmp, pi);
+    gsl_vector_mul(tmp, xj);
     for (size_t i = 0; i < n; i++)
     {
-      res += gsl_vector_get(y_pi, i);
+      res += gsl_vector_get(tmp, i);
     }
     gsl_vector_set(U, j, res);
   }
@@ -127,36 +163,64 @@ void logit::fit()
 {
   gsl_matrix *J;
   J = gsl_matrix_calloc(p, p);
-  gsl_vector *U, *beta2;
+  gsl_vector *U, *beta2, *tau;
   U = gsl_vector_calloc(p);
   beta2 = gsl_vector_calloc(p);
-  gsl_permutation *p = gsl_permutation_alloc(p);
+  tau = gsl_vector_alloc(p);
+  gsl_permutation *permulation = gsl_permutation_alloc(p);
   int s;
   int iter = 0;
-  double err;
+  double err, err_min = 1e40;
+  // initialize
+  calculate_J(J);
+  calculate_U(U);
+  // Jbeta
+  gsl_blas_dgemv(CblasNoTrans, 1.0, J, beta, 0, beta2);
+  gsl_vector_memcpy(Jbeta, beta2);
   while(true)
   {
-      // solve beta
-      err = 0
-      gsl_linalg_LU_decomp(J, p, &s);
-      gsl_linalg_LU_solve(J, p, Jbeta, beta2);
-      err = calculate_err(beta2);
-      cout << "iter = " << iter << " ... beta = " << beta
-           <<" err = " << err << endl;
-      if (err < ERR)
-      {
-        cout << "Finish!!" << endl;
-        break;
-      }
+    // update Jbeta
+    gsl_vector_sub(Jbeta, U);
+    // solve beta
+    err = 0;
+    // LU
+    /*
+    gsl_linalg_LU_decomp(J, permulation, &s);
+    gsl_linalg_LU_solve(J, permulation, Jbeta, beta2);
+    */
+    // QR
+    gsl_linalg_QR_decomp(J, tau);
+    gsl_linalg_QR_solve(J, tau, Jbeta, beta2);
+    err = calculate_err(beta2);
+    if (err < err_min)
+      err_min = err;
+    else
+    {
+      cout << "Finish!!" << endl;
+      break;
+    }
 
-      // update J
-      calculate_J(J);
-      // update U
-      calculate_U(U);
-      // update Jbeta
-      Jbeta -= U;
-      iter++;
+    gsl_vector_memcpy(beta, beta2);
+    cout << "iter = " << iter
+         <<" err = " << err << endl;
+
+    if (err < ERR)
+    {
+      cout << "Finish!!" << endl;
+      break;
+    }
+
+    // update J
+    calculate_J(J);
+    // update U
+    calculate_U(U);
+    // update Jbeta
+    gsl_blas_dgemv(CblasNoTrans, 1.0, J, beta, 0, beta2);
+    gsl_vector_memcpy(Jbeta, beta2);
+    iter++;
   }
+  for (size_t i = 0; i < p; i++)
+    cout << gsl_vector_get(beta,  i) << " ";
 }
 
 double logit::calculate_err(const gsl_vector* beta2) const
@@ -168,8 +232,28 @@ double logit::calculate_err(const gsl_vector* beta2) const
     for (size_t i = 0; i < p; i++)
     {
       tmp = gsl_vector_get(beta3, i);
-      err += tmp^2;
+      err += tmp * tmp;
     }
     gsl_vector_free(beta3);
     return err;
+}
+void logit::display(gsl_matrix* m) const
+{
+  for (size_t i = 0; i < m->size1; i++)
+  {
+    for (size_t j = 0; j < m->size2; j++)
+    {
+      cout << gsl_matrix_get(m, i, j) << " ";
+    }
+    cout << endl;
+  }
+  cout << endl;
+}
+void logit::displayv(gsl_vector* v) const
+{
+  for (size_t i = 0; i < v->size; i++)
+  {
+    cout << gsl_vector_get(v, i) << " ";
+  }
+  cout << endl;
 }

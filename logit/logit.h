@@ -24,7 +24,7 @@ class logit
     gsl_vector *Jbeta;
 
   public:
-    logit(const gsl_vector *yv, const gsl_matrix *Xv);
+    logit(gsl_vector *yv, gsl_matrix *Xv);
     logit(const std::vector<double> & yv, const std::vector<std::vector<double> > Xv);
     ~logit();
     void fit();
@@ -32,6 +32,8 @@ class logit
     double calculate_err(const gsl_vector* beta2) const;
     int calculate_J(gsl_matrix* J) const;
     int calculate_U(gsl_vector* U) const;
+    void display(gsl_matrix* m) const;
+    void displayv(gsl_vector* v) const;
 }; //logit
 
 #endif // _LOGIT_H

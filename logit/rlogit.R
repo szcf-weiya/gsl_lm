@@ -1,7 +1,6 @@
 library(AER)
 data(Affairs, package='AER')
 summary(Affairs)
-
 table(Affairs$affairs)
 
 ## the binary outcome is of interest

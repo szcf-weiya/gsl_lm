@@ -22,6 +22,7 @@ class logit
 
     gsl_vector *beta;
     gsl_vector *Jbeta;
+    gsl_vector *pvalue;
 
   public:
     logit(gsl_vector *yv, gsl_matrix *Xv);

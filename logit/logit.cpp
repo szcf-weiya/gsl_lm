@@ -1,11 +1,13 @@
 #include <iostream>
-
+#include <iomanip>
 #include "logit.h"
 
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_matrix.h>
 #include <gsl/gsl_blas.h>
 #include <gsl/gsl_linalg.h>
+#include <gsl/gsl_cdf.h>
+
 using namespace std;
 
 #define ERR 1e-10
@@ -24,6 +26,7 @@ logit::logit(gsl_vector *yv, gsl_matrix *Xv)
   // initialize
   beta = gsl_vector_calloc(p);
   Jbeta = gsl_vector_calloc(p);
+  pvalue = gsl_vector_calloc(p);
 //  gsl_vector_set_zero(beta);
   gsl_vector_set_all(beta, 0);
   /*
@@ -70,6 +73,7 @@ logit::~logit()
     gsl_matrix_free(X);
     gsl_vector_free(beta);
     gsl_vector_free(Jbeta);
+    gsl_vector_free(pvalue);
   }
 }
 
@@ -167,8 +171,10 @@ int logit::calculate_U(gsl_vector* U) const
 
 void logit::fit()
 {
-  gsl_matrix *J;
+  gsl_matrix *J, *Jinv;
   J = gsl_matrix_calloc(p, p);
+  Jinv = gsl_matrix_calloc(p, p);
+  gsl_vector_view Jinvdiag;
   gsl_vector *U, *beta2, *tau;
   U = gsl_vector_calloc(p);
   beta2 = gsl_vector_calloc(p);
@@ -234,7 +240,8 @@ void logit::fit()
       cout << "Finish!!" << endl;
       break;
     }
-
+    if (iter > 10)
+      break;
     // update J
     calculate_J(J);
     // update U
@@ -243,14 +250,22 @@ void logit::fit()
     gsl_blas_dgemv(CblasNoTrans, 1.0, J, beta, 0, beta2);
     gsl_vector_memcpy(Jbeta, beta2);
     iter++;
-    if (iter > 10)
-      break;
   }
+  // make sure J is LU decomposition
+  // inverse (for p-value)
+  gsl_linalg_LU_invert(J, permulation, Jinv);
+  Jinvdiag = gsl_matrix_subdiagonal(Jinv, 0);
+  double zscore, betai, se, pvaluei;
   for (size_t i = 0; i < p; i++)
-    cout << gsl_vector_get(beta,  i) << " ";
+  {
+    betai = gsl_vector_get(beta,  i);
+    se = sqrt(-1.0*gsl_vector_get(&Jinvdiag.vector, i));
+    zscore = betai/se;
+    pvaluei = 2*(zscore < 0 ? gsl_cdf_gaussian_P(zscore, 1) : gsl_cdf_gaussian_P(-zscore, 1));
+    cout << "i = " << i << " zscore = " << zscore << " p-value = " << pvaluei << endl;
+  }
   cout << endl;
 }
-
 
 double logit::calculate_err(const gsl_vector* beta2) const
 {

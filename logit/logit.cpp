@@ -27,20 +27,7 @@ logit::logit(gsl_vector *yv, gsl_matrix *Xv)
   beta = gsl_vector_calloc(p);
   Jbeta = gsl_vector_calloc(p);
   pvalue = gsl_vector_calloc(p);
-//  gsl_vector_set_zero(beta);
-  gsl_vector_set_all(beta, 0);
-  /*
-  gsl_vector_set(beta, 0, -0.1);
-  gsl_vector_set(beta, 1, 0.7);
-  gsl_vector_set(beta, 2, 1);
-  */
-  /*
-  gsl_vector_set(beta, 1, 1.5);
-  gsl_vector_set(beta, 4, -0.5);
-  double a[] = {1, 2, 3, 4, 5};
-  gsl_vector_view bb = gsl_vector_view_array(a, 5);
-  calculate_pi(&bb.vector);
-  */
+  gsl_vector_set_zero(beta);
   fit();
 }
 
@@ -184,20 +171,8 @@ void logit::fit()
   int iter = 0;
   double err, err_min = 1e40;
   // initialize
-  //cout << "Before ................\n";
-  //cout << "beta = " << endl;
-  //displayv(beta);
-  //cout << "J =  " << endl;
-  //display(J);
   calculate_J(J);
-  //cout << "beta = " << endl;
-  //displayv(beta);
-  //cout << "J =  " << endl;
-  display(J);
-  //cout << "After initialize, J =  "<< endl;
   calculate_U(U);
-  //cout << "U =  " << endl;
-  //displayv(U);
   // Jbeta
   gsl_blas_dgemv(CblasNoTrans, 1.0, J, beta, 0, beta2);
   gsl_vector_memcpy(Jbeta, beta2);
@@ -208,7 +183,6 @@ void logit::fit()
     // solve beta
     err = 0;
     // LU
-    display(J);
     gsl_linalg_LU_decomp(J, permulation, &s);
     gsl_linalg_LU_solve(J, permulation, Jbeta, beta2);
 
@@ -237,7 +211,7 @@ void logit::fit()
     cout << endl;
     if (err < ERR)
     {
-      cout << "Finish!!" << endl;
+      cout << "\nFinish!!\n" << endl;
       break;
     }
     if (iter > 10)
@@ -251,18 +225,29 @@ void logit::fit()
     gsl_vector_memcpy(Jbeta, beta2);
     iter++;
   }
+  cout << "Results: " << endl;
   // make sure J is LU decomposition
   // inverse (for p-value)
   gsl_linalg_LU_invert(J, permulation, Jinv);
   Jinvdiag = gsl_matrix_subdiagonal(Jinv, 0);
   double zscore, betai, se, pvaluei;
+  cout << setw(5) << setiosflags(ios::left) << ""
+       << setw(15) << setiosflags(ios::left) << "Estimate"
+       << setw(15) << setiosflags(ios::left) << "Std. Error"
+       << setw(15) << setiosflags(ios::left) << "z value"
+       << setw(15) << setiosflags(ios::left) << "Pr(>|z|)" << endl;
+
   for (size_t i = 0; i < p; i++)
   {
     betai = gsl_vector_get(beta,  i);
     se = sqrt(-1.0*gsl_vector_get(&Jinvdiag.vector, i));
     zscore = betai/se;
     pvaluei = 2*(zscore < 0 ? gsl_cdf_gaussian_P(zscore, 1) : gsl_cdf_gaussian_P(-zscore, 1));
-    cout << "i = " << i << " zscore = " << zscore << " p-value = " << pvaluei << endl;
+    cout << setw(5) << setiosflags(ios::left) << i
+         << setw(15) << setiosflags(ios::left) << betai
+         << setw(15) << setiosflags(ios::left) << se
+         << setw(15) << setiosflags(ios::left) << zscore
+         << setw(15) << setiosflags(ios::left) << pvaluei << endl;
   }
   cout << endl;
 }

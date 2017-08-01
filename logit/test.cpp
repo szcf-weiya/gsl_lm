@@ -27,8 +27,9 @@ int main()
   cout << "// case 1: Affairs " << endl
        << "// case 2: 10*3 " << endl
        << "// case 3: 10*2 " << endl;
+  cout << "Choose: ";
   cin >> test_case;
-
+  cout << "\nStart logistic regression ...\n" << endl;
   if (test_case == 1)
   {
     // load response vector

@@ -176,42 +176,136 @@ $(document).ready(function () {
 <h2>Example: Affairs</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucm0obGlzdD1scygpKVxubGlicmFyeShBRVIpXG5kYXRhKEFmZmFpcnMsIHBhY2thZ2U9J0FFUicpXG5zdW1tYXJ5KEFmZmFpcnMpXG50YWJsZShBZmZhaXJzJGFmZmFpcnMpXG5cbiMjIHRoZSBiaW5hcnkgb3V0Y29tZSBpcyBvZiBpbnRlcmVzdFxuQWZmYWlycyR5bmFmZmFpcltBZmZhaXJzJGFmZmFpcnMgPiAwXSA8LSAxXG5BZmZhaXJzJHluYWZmYWlyW0FmZmFpcnMkYWZmYWlycyA9PSAwXSA8LSAwXG5cblxuIyMgd3JpdGUgZGF0YSB0byBmaWxlXG5jb24gPC0gZmlsZShkZXNjcmlwdGlvbj1cInluYWZmYWlyLmRhdFwiLCBvcGVuPVwid2JcIilcbndyaXRlQmluKG9iamVjdD1hcy5kb3VibGUoQWZmYWlycyR5bmFmZmFpciksIGNvbj1jb24pXG5jbG9zZShjb24pXG5cblxuQWZmYWlycyR5bmFmZmFpciA8LSBmYWN0b3IoQWZmYWlycyR5bmFmZmFpcixcbiAgICAgICAgICAgICAgICAgICAgICAgICAgIGxldmVscyA9IGMoMCwgMSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICBsYWJlbHMgPSBjKFwiTk9cIiwgXCJZZXNcIikpXG50YWJsZShBZmZhaXJzJHluYWZmYWlyKVxuXG4jIyBmdWxsIGxvZ2lzdGljIHJlZ3Jlc3Npb24gbW9kZWxcbmZpdC5mdWxsIDwtIGdsbSh5bmFmZmFpciB+IGdlbmRlciArIGFnZSArIHllYXJzbWFycmllZCArIGNoaWxkcmVuICsgcmVsaWdpb3VzbmVzcyArIGVkdWNhdGlvbiArIG9jY3VwYXRpb24gKyByYXRpbmcsIGRhdGEgPSBBZmZhaXJzLCBmYW1pbHkgPSBiaW5vbWlhbCgpKVxuc3VtbWFyeShmaXQuZnVsbClcblxuIyMgcmVkdWNlZCBtb2RlbFxuZml0LnJlZHVjZWQgPC0gZ2xtKHluYWZmYWlyIH4gYWdlICsgeWVhcnNtYXJyaWVkICsgcmVsaWdpb3VzbmVzcyArIHJhdGluZywgZGF0YSA9IEFmZmFpcnMsIGZhbWlseSA9IGJpbm9taWFsKCkpXG5zdW1tYXJ5KGZpdC5yZWR1Y2VkKVxuIyMgZml0LnJlZHVjZWQgPC0gZ2xtKHluYWZmYWlyIH4gYWdlICsgeWVhcnNtYXJyaWVkICsgcmVsaWdpb3VzbmVzcyArIHJhdGluZywgZGF0YSA9IEFmZmFpcnMsIGZhbWlseSA9IHBvaXNzb24pXG4jIyBzdW1tYXJ5KGZpdC5yZWR1Y2VkKVxuXG5cbiMjIHdyaXRlIGRhdGEgdG8gZmlsZVxuXG5kZiA8LSBhcy5tYXRyaXgoQWZmYWlyc1tjKDMsNCw2LDkpXSlcbk4gPSA2MDFcbmNvbiA8LSBmaWxlKGRlc2NyaXB0aW9uPVwieC5kYXRcIiwgb3Blbj1cIndiXCIpXG5mb3IoaSBpbiAxOk4pe1xuICAgIHdyaXRlQmluKG9iamVjdD1hcy52ZWN0b3IoYXMuZG91YmxlKGMoMSwgZGZbaSxdKSksIG1vZGUgPSBcIm51bWVyaWNcIiksIGNvbj1jb24pXG59XG5jbG9zZShjb24pXG5cblxuIyMgY29tcGFyZSB0d28gbW9kZWxcbmFub3ZhKGZpdC5yZWR1Y2VkLCBmaXQuZnVsbCwgdGVzdCA9ICdDaGlzcScpXG5cblxuIyMgVGhlIG5vbnNpZ25pZmljYW50IGNoaS1zcXVhcmUgdmFsdWUgc3VnZ2VzdHMgdGhhdCB0aGUgcmVkdWNlZCBtb2RlbCBmaXRzIGFzIHdlbGwgYXMgdGhlIGZ1bGwgbW9kZWwuXG5cblxuIyMgIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyNcbiMjIE1vZGVsIFBhcmFtZXRlcnNcbiMjICMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjXG5jb2VmKGZpdC5yZWR1Y2VkKVxuZXhwKGNvZWYoZml0LnJlZHVjZWQpKVxuXG4jIyAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjI1xuIyMgUHJlZGljdFxuIyMgIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyNcblxudGVzdGRhdGEgPC0gZGF0YS5mcmFtZShyYXRpbmc9YygxLCAyLCAzLCA0LCA1KSwgYWdlPW1lYW4oQWZmYWlycyRhZ2UpLFxuICAgICAgICAgICAgICAgICAgICAgICB5ZWFyc21hcnJpZWQ9bWVhbihBZmZhaXJzJHllYXJzbWFycmllZCksXG4gICAgICAgICAgICAgICAgICAgICAgIHJlbGlnaW91c25lc3M9bWVhbihBZmZhaXJzJHJlbGlnaW91c25lc3MpKVxuXG50ZXN0ZGF0YSRwcm9iIDwtIHByZWRpY3QoZml0LnJlZHVjZWQsIG5ld2RhdGE9dGVzdGRhdGEsIHR5cGU9XCJyZXNwb25zZVwiKVxudGVzdGRhdGFcblxuXG4jIyAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjI1xuIyMgb3ZlcmRpc3BlcnNpb25cbiMjXG4jIyBPdmVyZGlzcGVyc2lvbiBvY2N1cnMgd2hlbiB0aGUgb2JzZXJ2ZWQgdmFyaWFuY2Ugb2YgdGhlIHJlc3BvbnNlIHZhcmlhYmxlIGlzXG4jIyBsYXJnZXIgdGhhbiB3aGF0IHdvdWxkIGJlIGV4cGVjdGVkIGZyb20gYSBiaW5vbWlhbCBkaXN0cmlidXRpb24uXG4jI1xuIyMgT25lIHdheSB0byBkZXRlY3Qgb3ZlcmRpc3BlcnNpb24gaXMgdG8gY29tcGFyZSB0aGUgcmVzaWR1YWwgZGV2aWFuY2Ugd2l0aCB0aGVcbiMjIHJlc2lkdWFsIGRlZ3JlZXMgb2YgZnJlZWRvbSBpbiB5b3VyIGJpbm9taWFsIG1vZGVsLlxuIyNcbiMjIElmIHRoZSByYXRpbyBwaGksIGlzIGNvbnNpZGVyYWJseSBsYXJnZXIgdGhhbiAxLCB5b3UgaGF2ZSBldmlkZW5jZSBvZiBvdmVyZGlzcGVyc2lvbi5cbiMjICMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjXG5cbnBoaSA9IDYxNS40LzU5NlxuXG4jIyBhbm90aGVyIHdheSBmb3IgdGVzdGluZyBPdmVyZGlzcGVyc2lvblxuXG5maXQgPC0gZ2xtKHluYWZmYWlyIH4gYWdlICsgeWVhcnNtYXJyaWVkICsgcmVsaWdpb3VzbmVzcyArXG4gICAgICAgICAgICAgICByYXRpbmcsIGZhbWlseSA9IGJpbm9taWFsKCksIGRhdGEgPSBBZmZhaXJzKVxuZml0Lm9kIDwtIGdsbSh5bmFmZmFpciB+IGFnZSArIHllYXJzbWFycmllZCArIHJlbGlnaW91c25lc3MgK1xuICAgICAgICAgICAgICAgICAgcmF0aW5nLCBmYW1pbHkgPSBxdWFzaWJpbm9taWFsKCksIGRhdGEgPSBBZmZhaXJzKVxucGNoaXNxKHN1bW1hcnkoZml0Lm9kKSRkaXNwZXJzaW9uICogZml0JGRmLnJlc2lkdWFsLFxuICAgICAgIGZpdCRkZi5yZXNpZHVhbCwgbG93ZXIgPSBGKVxuXG4jIyBUaGUgcmVzdWx0aW5nIHAtdmFsdWUgaXMgY2xlYXJseSBub3Qgc2lnbmlmaWNhbnQsIHN0cmVuZ3RoZW5pbmcgb3VyIGJlbGllZiB0aGF0IE92ZXJkaXNwZXJzaW9uIGlzIG5vdCBhIHByb2JsZW0uXG5cbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucm0obGlzdD1scygpKVxubGlicmFyeShBRVIpXG5kYXRhKEFmZmFpcnMsIHBhY2thZ2U9J0FFUicpXG5zdW1tYXJ5KEFmZmFpcnMpXG5gYGAifQ== -->
 <pre class="r"><code>rm(list=ls())
 library(AER)
 data(Affairs, package='AER')
-summary(Affairs)
-table(Affairs$affairs)
-
-## the binary outcome is of interest
+summary(Affairs)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgIGFmZmFpcnMgICAgICAgICAgZ2VuZGVyICAgICAgICAgYWdlICAgICAgICAgeWVhcnNtYXJyaWVkICAgXG4gTWluLiAgIDogMC4wMDAgICBmZW1hbGU6MzE1ICAgTWluLiAgIDoxNy41MCAgIE1pbi4gICA6IDAuMTI1ICBcbiAxc3QgUXUuOiAwLjAwMCAgIG1hbGUgIDoyODYgICAxc3QgUXUuOjI3LjAwICAgMXN0IFF1LjogNC4wMDAgIFxuIE1lZGlhbiA6IDAuMDAwICAgICAgICAgICAgICAgIE1lZGlhbiA6MzIuMDAgICBNZWRpYW4gOiA3LjAwMCAgXG4gTWVhbiAgIDogMS40NTYgICAgICAgICAgICAgICAgTWVhbiAgIDozMi40OSAgIE1lYW4gICA6IDguMTc4ICBcbiAzcmQgUXUuOiAwLjAwMCAgICAgICAgICAgICAgICAzcmQgUXUuOjM3LjAwICAgM3JkIFF1LjoxNS4wMDAgIFxuIE1heC4gICA6MTIuMDAwICAgICAgICAgICAgICAgIE1heC4gICA6NTcuMDAgICBNYXguICAgOjE1LjAwMCAgXG4gY2hpbGRyZW4gIHJlbGlnaW91c25lc3MgICAgIGVkdWNhdGlvbiAgICAgICBvY2N1cGF0aW9uICAgXG4gbm8gOjE3MSAgIE1pbi4gICA6MS4wMDAgICBNaW4uICAgOiA5LjAwICAgTWluLiAgIDoxLjAwMCAgXG4geWVzOjQzMCAgIDFzdCBRdS46Mi4wMDAgICAxc3QgUXUuOjE0LjAwICAgMXN0IFF1LjozLjAwMCAgXG4gICAgICAgICAgIE1lZGlhbiA6My4wMDAgICBNZWRpYW4gOjE2LjAwICAgTWVkaWFuIDo1LjAwMCAgXG4gICAgICAgICAgIE1lYW4gICA6My4xMTYgICBNZWFuICAgOjE2LjE3ICAgTWVhbiAgIDo0LjE5NSAgXG4gICAgICAgICAgIDNyZCBRdS46NC4wMDAgICAzcmQgUXUuOjE4LjAwICAgM3JkIFF1Ljo2LjAwMCAgXG4gICAgICAgICAgIE1heC4gICA6NS4wMDAgICBNYXguICAgOjIwLjAwICAgTWF4LiAgIDo3LjAwMCAgXG4gICAgIHJhdGluZyAgICAgXG4gTWluLiAgIDoxLjAwMCAgXG4gMXN0IFF1LjozLjAwMCAgXG4gTWVkaWFuIDo0LjAwMCAgXG4gTWVhbiAgIDozLjkzMiAgXG4gM3JkIFF1Ljo1LjAwMCAgXG4gTWF4LiAgIDo1LjAwMCAgXG4ifQ== -->
+<pre><code>    affairs          gender         age         yearsmarried   
+ Min.   : 0.000   female:315   Min.   :17.50   Min.   : 0.125  
+ 1st Qu.: 0.000   male  :286   1st Qu.:27.00   1st Qu.: 4.000  
+ Median : 0.000                Median :32.00   Median : 7.000  
+ Mean   : 1.456                Mean   :32.49   Mean   : 8.178  
+ 3rd Qu.: 0.000                3rd Qu.:37.00   3rd Qu.:15.000  
+ Max.   :12.000                Max.   :57.00   Max.   :15.000  
+ children  religiousness     education       occupation   
+ no :171   Min.   :1.000   Min.   : 9.00   Min.   :1.000  
+ yes:430   1st Qu.:2.000   1st Qu.:14.00   1st Qu.:3.000  
+           Median :3.000   Median :16.00   Median :5.000  
+           Mean   :3.116   Mean   :16.17   Mean   :4.195  
+           3rd Qu.:4.000   3rd Qu.:18.00   3rd Qu.:6.000  
+           Max.   :5.000   Max.   :20.00   Max.   :7.000  
+     rating     
+ Min.   :1.000  
+ 1st Qu.:3.000  
+ Median :4.000  
+ Mean   :3.932  
+ 3rd Qu.:5.000  
+ Max.   :5.000  </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUoQWZmYWlycyRhZmZhaXJzKVxuYGBgIn0= -->
+<pre class="r"><code>table(Affairs$affairs)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG4gIDAgICAxICAgMiAgIDMgICA3ICAxMiBcbjQ1MSAgMzQgIDE3ICAxOSAgNDIgIDM4IFxuIn0= -->
+<pre><code>
+  0   1   2   3   7  12 
+451  34  17  19  42  38 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgdGhlIGJpbmFyeSBvdXRjb21lIGlzIG9mIGludGVyZXN0XG5BZmZhaXJzJHluYWZmYWlyW0FmZmFpcnMkYWZmYWlycyA+IDBdIDwtIDFcbkFmZmFpcnMkeW5hZmZhaXJbQWZmYWlycyRhZmZhaXJzID09IDBdIDwtIDBcbiMjIHdyaXRlIGRhdGEgdG8gZmlsZVxuY29uIDwtIGZpbGUoZGVzY3JpcHRpb249XCJ5bmFmZmFpci5kYXRcIiwgb3Blbj1cIndiXCIpXG53cml0ZUJpbihvYmplY3Q9YXMuZG91YmxlKEFmZmFpcnMkeW5hZmZhaXIpLCBjb249Y29uKVxuY2xvc2UoY29uKVxuQWZmYWlycyR5bmFmZmFpciA8LSBmYWN0b3IoQWZmYWlycyR5bmFmZmFpcixcbiAgICAgICAgICAgICAgICAgICAgICAgICAgIGxldmVscyA9IGMoMCwgMSksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICBsYWJlbHMgPSBjKFwiTk9cIiwgXCJZZXNcIikpXG50YWJsZShBZmZhaXJzJHluYWZmYWlyKVxuYGBgIn0= -->
+<pre class="r"><code>## the binary outcome is of interest
 Affairs$ynaffair[Affairs$affairs &gt; 0] &lt;- 1
 Affairs$ynaffair[Affairs$affairs == 0] &lt;- 0
-
-
 ## write data to file
 con &lt;- file(description=&quot;ynaffair.dat&quot;, open=&quot;wb&quot;)
 writeBin(object=as.double(Affairs$ynaffair), con=con)
 close(con)
-
-
 Affairs$ynaffair &lt;- factor(Affairs$ynaffair,
                            levels = c(0, 1),
                            labels = c(&quot;NO&quot;, &quot;Yes&quot;))
-table(Affairs$ynaffair)
-
-## full logistic regression model
+table(Affairs$ynaffair)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG4gTk8gWWVzIFxuNDUxIDE1MCBcbiJ9 -->
+<pre><code>
+ NO Yes 
+451 150 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgZnVsbCBsb2dpc3RpYyByZWdyZXNzaW9uIG1vZGVsXG5maXQuZnVsbCA8LSBnbG0oeW5hZmZhaXIgfiBnZW5kZXIgKyBhZ2UgKyB5ZWFyc21hcnJpZWQgKyBjaGlsZHJlbiArIHJlbGlnaW91c25lc3MgKyBlZHVjYXRpb24gKyBvY2N1cGF0aW9uICsgcmF0aW5nLCBkYXRhID0gQWZmYWlycywgZmFtaWx5ID0gYmlub21pYWwoKSlcbnN1bW1hcnkoZml0LmZ1bGwpXG5gYGAifQ== -->
+<pre class="r"><code>## full logistic regression model
 fit.full &lt;- glm(ynaffair ~ gender + age + yearsmarried + children + religiousness + education + occupation + rating, data = Affairs, family = binomial())
-summary(fit.full)
+summary(fit.full)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxuZ2xtKGZvcm11bGEgPSB5bmFmZmFpciB+IGdlbmRlciArIGFnZSArIHllYXJzbWFycmllZCArIGNoaWxkcmVuICsgXG4gICAgcmVsaWdpb3VzbmVzcyArIGVkdWNhdGlvbiArIG9jY3VwYXRpb24gKyByYXRpbmcsIGZhbWlseSA9IGJpbm9taWFsKCksIFxuICAgIGRhdGEgPSBBZmZhaXJzKVxuXG5EZXZpYW5jZSBSZXNpZHVhbHM6IFxuICAgIE1pbiAgICAgICAxUSAgIE1lZGlhbiAgICAgICAzUSAgICAgIE1heCAgXG4tMS41NzEzICAtMC43NDk5ICAtMC41NjkwICAtMC4yNTM5ICAgMi41MTkxICBcblxuQ29lZmZpY2llbnRzOlxuICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAxLjM3NzI2ICAgIDAuODg3NzYgICAxLjU1MSAwLjEyMDgwNyAgICBcbmdlbmRlcm1hbGUgICAgIDAuMjgwMjkgICAgMC4yMzkwOSAgIDEuMTcyIDAuMjQxMDgzICAgIFxuYWdlICAgICAgICAgICAtMC4wNDQyNiAgICAwLjAxODI1ICAtMi40MjUgMC4wMTUzMDEgKiAgXG55ZWFyc21hcnJpZWQgICAwLjA5NDc3ICAgIDAuMDMyMjEgICAyLjk0MiAwLjAwMzI2MiAqKiBcbmNoaWxkcmVueWVzICAgIDAuMzk3NjcgICAgMC4yOTE1MSAgIDEuMzY0IDAuMTcyNTA4ICAgIFxucmVsaWdpb3VzbmVzcyAtMC4zMjQ3MiAgICAwLjA4OTc1ICAtMy42MTggMC4wMDAyOTcgKioqXG5lZHVjYXRpb24gICAgICAwLjAyMTA1ICAgIDAuMDUwNTEgICAwLjQxNyAwLjY3Njg1MSAgICBcbm9jY3VwYXRpb24gICAgIDAuMDMwOTIgICAgMC4wNzE3OCAgIDAuNDMxIDAuNjY2NjMwICAgIFxucmF0aW5nICAgICAgICAtMC40Njg0NSAgICAwLjA5MDkxICAtNS4xNTMgMi41NmUtMDcgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuKERpc3BlcnNpb24gcGFyYW1ldGVyIGZvciBiaW5vbWlhbCBmYW1pbHkgdGFrZW4gdG8gYmUgMSlcblxuICAgIE51bGwgZGV2aWFuY2U6IDY3NS4zOCAgb24gNjAwICBkZWdyZWVzIG9mIGZyZWVkb21cblJlc2lkdWFsIGRldmlhbmNlOiA2MDkuNTEgIG9uIDU5MiAgZGVncmVlcyBvZiBmcmVlZG9tXG5BSUM6IDYyNy41MVxuXG5OdW1iZXIgb2YgRmlzaGVyIFNjb3JpbmcgaXRlcmF0aW9uczogNFxuIn0= -->
+<pre><code>
+Call:
+glm(formula = ynaffair ~ gender + age + yearsmarried + children + 
+    religiousness + education + occupation + rating, family = binomial(), 
+    data = Affairs)
 
-## reduced model
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.5713  -0.7499  -0.5690  -0.2539   2.5191  
+
+Coefficients:
+              Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)    1.37726    0.88776   1.551 0.120807    
+gendermale     0.28029    0.23909   1.172 0.241083    
+age           -0.04426    0.01825  -2.425 0.015301 *  
+yearsmarried   0.09477    0.03221   2.942 0.003262 ** 
+childrenyes    0.39767    0.29151   1.364 0.172508    
+religiousness -0.32472    0.08975  -3.618 0.000297 ***
+education      0.02105    0.05051   0.417 0.676851    
+occupation     0.03092    0.07178   0.431 0.666630    
+rating        -0.46845    0.09091  -5.153 2.56e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 675.38  on 600  degrees of freedom
+Residual deviance: 609.51  on 592  degrees of freedom
+AIC: 627.51
+
+Number of Fisher Scoring iterations: 4</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgcmVkdWNlZCBtb2RlbFxuZml0LnJlZHVjZWQgPC0gZ2xtKHluYWZmYWlyIH4gYWdlICsgeWVhcnNtYXJyaWVkICsgcmVsaWdpb3VzbmVzcyArIHJhdGluZywgZGF0YSA9IEFmZmFpcnMsIGZhbWlseSA9IGJpbm9taWFsKCkpXG5zdW1tYXJ5KGZpdC5yZWR1Y2VkKVxuYGBgIn0= -->
+<pre class="r"><code>## reduced model
 fit.reduced &lt;- glm(ynaffair ~ age + yearsmarried + religiousness + rating, data = Affairs, family = binomial())
-summary(fit.reduced)
-## fit.reduced &lt;- glm(ynaffair ~ age + yearsmarried + religiousness + rating, data = Affairs, family = poisson)
+summary(fit.reduced)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxuZ2xtKGZvcm11bGEgPSB5bmFmZmFpciB+IGFnZSArIHllYXJzbWFycmllZCArIHJlbGlnaW91c25lc3MgKyBcbiAgICByYXRpbmcsIGZhbWlseSA9IGJpbm9taWFsKCksIGRhdGEgPSBBZmZhaXJzKVxuXG5EZXZpYW5jZSBSZXNpZHVhbHM6IFxuICAgIE1pbiAgICAgICAxUSAgIE1lZGlhbiAgICAgICAzUSAgICAgIE1heCAgXG4tMS42Mjc4ICAtMC43NTUwICAtMC41NzAxICAtMC4yNjI0ICAgMi4zOTk4ICBcblxuQ29lZmZpY2llbnRzOlxuICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAxLjkzMDgzICAgIDAuNjEwMzIgICAzLjE2NCAwLjAwMTU1OCAqKiBcbmFnZSAgICAgICAgICAgLTAuMDM1MjcgICAgMC4wMTczNiAgLTIuMDMyIDAuMDQyMTI3ICogIFxueWVhcnNtYXJyaWVkICAgMC4xMDA2MiAgICAwLjAyOTIxICAgMy40NDUgMC4wMDA1NzEgKioqXG5yZWxpZ2lvdXNuZXNzIC0wLjMyOTAyICAgIDAuMDg5NDUgIC0zLjY3OCAwLjAwMDIzNSAqKipcbnJhdGluZyAgICAgICAgLTAuNDYxMzYgICAgMC4wODg4NCAgLTUuMTkzIDIuMDZlLTA3ICoqKlxuLS0tXG5TaWduaWYuIGNvZGVzOiAgMCDigJgqKirigJkgMC4wMDEg4oCYKirigJkgMC4wMSDigJgq4oCZIDAuMDUg4oCYLuKAmSAwLjEg4oCYIOKAmSAxXG5cbihEaXNwZXJzaW9uIHBhcmFtZXRlciBmb3IgYmlub21pYWwgZmFtaWx5IHRha2VuIHRvIGJlIDEpXG5cbiAgICBOdWxsIGRldmlhbmNlOiA2NzUuMzggIG9uIDYwMCAgZGVncmVlcyBvZiBmcmVlZG9tXG5SZXNpZHVhbCBkZXZpYW5jZTogNjE1LjM2ICBvbiA1OTYgIGRlZ3JlZXMgb2YgZnJlZWRvbVxuQUlDOiA2MjUuMzZcblxuTnVtYmVyIG9mIEZpc2hlciBTY29yaW5nIGl0ZXJhdGlvbnM6IDRcbiJ9 -->
+<pre><code>
+Call:
+glm(formula = ynaffair ~ age + yearsmarried + religiousness + 
+    rating, family = binomial(), data = Affairs)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.6278  -0.7550  -0.5701  -0.2624   2.3998  
+
+Coefficients:
+              Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)    1.93083    0.61032   3.164 0.001558 ** 
+age           -0.03527    0.01736  -2.032 0.042127 *  
+yearsmarried   0.10062    0.02921   3.445 0.000571 ***
+religiousness -0.32902    0.08945  -3.678 0.000235 ***
+rating        -0.46136    0.08884  -5.193 2.06e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 675.38  on 600  degrees of freedom
+Residual deviance: 615.36  on 596  degrees of freedom
+AIC: 625.36
+
+Number of Fisher Scoring iterations: 4</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgZml0LnJlZHVjZWQgPC0gZ2xtKHluYWZmYWlyIH4gYWdlICsgeWVhcnNtYXJyaWVkICsgcmVsaWdpb3VzbmVzcyArIHJhdGluZywgZGF0YSA9IEFmZmFpcnMsIGZhbWlseSA9IHBvaXNzb24pXG4jIyBzdW1tYXJ5KGZpdC5yZWR1Y2VkKVxuIyMgd3JpdGUgZGF0YSB0byBmaWxlXG5kZiA8LSBhcy5tYXRyaXgoQWZmYWlyc1tjKDMsNCw2LDkpXSlcbk4gPSA2MDFcbmNvbiA8LSBmaWxlKGRlc2NyaXB0aW9uPVwieC5kYXRcIiwgb3Blbj1cIndiXCIpXG5mb3IoaSBpbiAxOk4pe1xuICAgIHdyaXRlQmluKG9iamVjdD1hcy52ZWN0b3IoYXMuZG91YmxlKGMoMSwgZGZbaSxdKSksIG1vZGUgPSBcIm51bWVyaWNcIiksIGNvbj1jb24pXG59XG5jbG9zZShjb24pXG4jIyBjb21wYXJlIHR3byBtb2RlbFxuYW5vdmEoZml0LnJlZHVjZWQsIGZpdC5mdWxsLCB0ZXN0ID0gJ0NoaXNxJylcbmBgYCJ9 -->
+<pre class="r"><code>## fit.reduced &lt;- glm(ynaffair ~ age + yearsmarried + religiousness + rating, data = Affairs, family = poisson)
 ## summary(fit.reduced)
-
-
 ## write data to file
-
 df &lt;- as.matrix(Affairs[c(3,4,6,9)])
 N = 601
 con &lt;- file(description=&quot;x.dat&quot;, open=&quot;wb&quot;)
@@ -219,34 +313,56 @@ for(i in 1:N){
     writeBin(object=as.vector(as.double(c(1, df[i,])), mode = &quot;numeric&quot;), con=con)
 }
 close(con)
-
-
 ## compare two model
-anova(fit.reduced, fit.full, test = 'Chisq')
+anova(fit.reduced, fit.full, test = 'Chisq')</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQW5hbHlzaXMgb2YgRGV2aWFuY2UgVGFibGVcblxuTW9kZWwgMTogeW5hZmZhaXIgfiBhZ2UgKyB5ZWFyc21hcnJpZWQgKyByZWxpZ2lvdXNuZXNzICsgcmF0aW5nXG5Nb2RlbCAyOiB5bmFmZmFpciB+IGdlbmRlciArIGFnZSArIHllYXJzbWFycmllZCArIGNoaWxkcmVuICsgcmVsaWdpb3VzbmVzcyArIFxuICAgIGVkdWNhdGlvbiArIG9jY3VwYXRpb24gKyByYXRpbmdcbiAgUmVzaWQuIERmIFJlc2lkLiBEZXYgRGYgRGV2aWFuY2UgUHIoPkNoaSlcbjEgICAgICAgNTk2ICAgICA2MTUuMzYgICAgICAgICAgICAgICAgICAgICBcbjIgICAgICAgNTkyICAgICA2MDkuNTEgIDQgICA1Ljg0NzQgICAwLjIxMDhcbiJ9 -->
+<pre><code>Analysis of Deviance Table
 
-
-## The nonsignificant chi-square value suggests that the reduced model fits as well as the full model.
-
-
+Model 1: ynaffair ~ age + yearsmarried + religiousness + rating
+Model 2: ynaffair ~ gender + age + yearsmarried + children + religiousness + 
+    education + occupation + rating
+  Resid. Df Resid. Dev Df Deviance Pr(&gt;Chi)
+1       596     615.36                     
+2       592     609.51  4   5.8474   0.2108</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhlIG5vbnNpZ25pZmljYW50IGNoaS1zcXVhcmUgdmFsdWUgc3VnZ2VzdHMgdGhhdCB0aGUgcmVkdWNlZCBtb2RlbCBmaXRzIGFzIHdlbGwgYXMgdGhlIGZ1bGwgbW9kZWwuXG4jIyAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjI1xuIyMgTW9kZWwgUGFyYW1ldGVyc1xuIyMgIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyNcbmNvZWYoZml0LnJlZHVjZWQpXG5gYGAifQ== -->
+<pre class="r"><code>## The nonsignificant chi-square value suggests that the reduced model fits as well as the full model.
 ## ##########################
 ## Model Parameters
 ## ##########################
-coef(fit.reduced)
-exp(coef(fit.reduced))
-
-## ##########################
+coef(fit.reduced)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAoSW50ZXJjZXB0KSAgICAgICAgICAgYWdlICB5ZWFyc21hcnJpZWQgcmVsaWdpb3VzbmVzcyAgICAgICAgcmF0aW5nIFxuICAgMS45MzA4MzAxNyAgIC0wLjAzNTI3MTEyICAgIDAuMTAwNjIyNzQgICAtMC4zMjkwMjM4NiAgIC0wLjQ2MTM2MTQ0IFxuIn0= -->
+<pre><code>  (Intercept)           age  yearsmarried religiousness        rating 
+   1.93083017   -0.03527112    0.10062274   -0.32902386   -0.46136144 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwKGNvZWYoZml0LnJlZHVjZWQpKVxuYGBgIn0= -->
+<pre class="r"><code>exp(coef(fit.reduced))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAoSW50ZXJjZXB0KSAgICAgICAgICAgYWdlICB5ZWFyc21hcnJpZWQgcmVsaWdpb3VzbmVzcyAgICAgICAgcmF0aW5nIFxuICAgIDYuODk1MjMyMSAgICAgMC45NjUzNDM3ICAgICAxLjEwNTg1OTQgICAgIDAuNzE5NjI1OCAgICAgMC42MzA0MjQ4IFxuIn0= -->
+<pre><code>  (Intercept)           age  yearsmarried religiousness        rating 
+    6.8952321     0.9653437     1.1058594     0.7196258     0.6304248 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyNcbiMjIFByZWRpY3RcbiMjICMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjXG50ZXN0ZGF0YSA8LSBkYXRhLmZyYW1lKHJhdGluZz1jKDEsIDIsIDMsIDQsIDUpLCBhZ2U9bWVhbihBZmZhaXJzJGFnZSksXG4gICAgICAgICAgICAgICAgICAgICAgIHllYXJzbWFycmllZD1tZWFuKEFmZmFpcnMkeWVhcnNtYXJyaWVkKSxcbiAgICAgICAgICAgICAgICAgICAgICAgcmVsaWdpb3VzbmVzcz1tZWFuKEFmZmFpcnMkcmVsaWdpb3VzbmVzcykpXG50ZXN0ZGF0YSRwcm9iIDwtIHByZWRpY3QoZml0LnJlZHVjZWQsIG5ld2RhdGE9dGVzdGRhdGEsIHR5cGU9XCJyZXNwb25zZVwiKVxudGVzdGRhdGFcbmBgYCJ9 -->
+<pre class="r"><code>## ##########################
 ## Predict
 ## ##########################
-
 testdata &lt;- data.frame(rating=c(1, 2, 3, 4, 5), age=mean(Affairs$age),
                        yearsmarried=mean(Affairs$yearsmarried),
                        religiousness=mean(Affairs$religiousness))
-
 testdata$prob &lt;- predict(fit.reduced, newdata=testdata, type=&quot;response&quot;)
-testdata
-
-
-## ##########################
+testdata</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NSwibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUF3dHlpVERpaXVCaVlHQmdZbUJtWVdSZ1lnWXlXWmlBQkNNREN3TW5pSzVnWUdBV0JqSllnWmdQUk50L1lBQURCd1lvelFHbEJhQzBDQU1NZ05VN09OaWxpOXczN2lKRXc5VXJSUDE2Zm1tT0RpRWFycDdqWGFkR3Vjc1VRalRjL1ErK0wvNDE1K0F2KzF1emkydzg1SVR0TDE5Y0xoTE44OVAralBrZHV4YVQ1ZmFINC9nU1E1c1YwUUtDTlM4eE43VVl5QkFBQndaRWtLMG9zU1F6THgzS1kwNU1UNFV5ZVNwVEU0dUtjeE9MaWpKVFU2Qml2RVdwT1pucG1mbWx4WG1weGNWUVFaYUNvdndrTktzNGkvTEw5V0RXOFlJaXB3RVNucXpvYmtyT1NTeUd1UWtteUpXU1dKS29sMVlFMUEvay9VUFR3cDVmVUpLWm53ZlV4QVNMVldUTmpFVm9BdnlsZVNDWHBPZ21aNVRtWmVzYWdpd0FTME1BTDVUTmlzb0dXY24wSHoyd1V2UFNNL05nSWNTYWs1aVVtZ1BsOEFGOURQYXdYa0ZSWmw0SnpDZEEwV0s5a3Z5U1JKZzZydVQ4SEpnSTJHOE0vd0FEcWRsYXd3SUFBQT09In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["rating"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["age"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["yearsmarried"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["religiousness"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["prob"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"32.48752","3":"8.177696","4":"3.116473","5":"0.5302296"},{"1":"2","2":"32.48752","3":"8.177696","4":"3.116473","5":"0.4157377"},{"1":"3","2":"32.48752","3":"8.177696","4":"3.116473","5":"0.3096712"},{"1":"4","2":"32.48752","3":"8.177696","4":"3.116473","5":"0.2204547"},{"1":"5","2":"32.48752","3":"8.177696","4":"3.116473","5":"0.1513079"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyNcbiMjIG92ZXJkaXNwZXJzaW9uXG4jI1xuIyMgT3ZlcmRpc3BlcnNpb24gb2NjdXJzIHdoZW4gdGhlIG9ic2VydmVkIHZhcmlhbmNlIG9mIHRoZSByZXNwb25zZSB2YXJpYWJsZSBpc1xuIyMgbGFyZ2VyIHRoYW4gd2hhdCB3b3VsZCBiZSBleHBlY3RlZCBmcm9tIGEgYmlub21pYWwgZGlzdHJpYnV0aW9uLlxuIyNcbiMjIE9uZSB3YXkgdG8gZGV0ZWN0IG92ZXJkaXNwZXJzaW9uIGlzIHRvIGNvbXBhcmUgdGhlIHJlc2lkdWFsIGRldmlhbmNlIHdpdGggdGhlXG4jIyByZXNpZHVhbCBkZWdyZWVzIG9mIGZyZWVkb20gaW4geW91ciBiaW5vbWlhbCBtb2RlbC5cbiMjXG4jIyBJZiB0aGUgcmF0aW8gcGhpLCBpcyBjb25zaWRlcmFibHkgbGFyZ2VyIHRoYW4gMSwgeW91IGhhdmUgZXZpZGVuY2Ugb2Ygb3ZlcmRpc3BlcnNpb24uXG4jIyAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjI1xucGhpID0gNjE1LjQvNTk2XG4jIyBhbm90aGVyIHdheSBmb3IgdGVzdGluZyBPdmVyZGlzcGVyc2lvblxuZml0IDwtIGdsbSh5bmFmZmFpciB+IGFnZSArIHllYXJzbWFycmllZCArIHJlbGlnaW91c25lc3MgK1xuICAgICAgICAgICAgICAgcmF0aW5nLCBmYW1pbHkgPSBiaW5vbWlhbCgpLCBkYXRhID0gQWZmYWlycylcbmZpdC5vZCA8LSBnbG0oeW5hZmZhaXIgfiBhZ2UgKyB5ZWFyc21hcnJpZWQgKyByZWxpZ2lvdXNuZXNzICtcbiAgICAgICAgICAgICAgICAgIHJhdGluZywgZmFtaWx5ID0gcXVhc2liaW5vbWlhbCgpLCBkYXRhID0gQWZmYWlycylcbnBjaGlzcShzdW1tYXJ5KGZpdC5vZCkkZGlzcGVyc2lvbiAqIGZpdCRkZi5yZXNpZHVhbCxcbiAgICAgICBmaXQkZGYucmVzaWR1YWwsIGxvd2VyID0gRilcbmBgYCJ9 -->
+<pre class="r"><code>## ##########################
 ## overdispersion
 ##
 ## Overdispersion occurs when the observed variance of the response variable is
@@ -257,20 +373,20 @@ testdata
 ##
 ## If the ratio phi, is considerably larger than 1, you have evidence of overdispersion.
 ## ##########################
-
 phi = 615.4/596
-
 ## another way for testing Overdispersion
-
 fit &lt;- glm(ynaffair ~ age + yearsmarried + religiousness +
                rating, family = binomial(), data = Affairs)
 fit.od &lt;- glm(ynaffair ~ age + yearsmarried + religiousness +
                   rating, family = quasibinomial(), data = Affairs)
 pchisq(summary(fit.od)$dispersion * fit$df.residual,
-       fit$df.residual, lower = F)
-
-## The resulting p-value is clearly not significant, strengthening our belief that Overdispersion is not a problem.
-</code></pre>
+       fit$df.residual, lower = F)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMzQwMTIyXG4ifQ== -->
+<pre><code>[1] 0.340122</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMgVGhlIHJlc3VsdGluZyBwLXZhbHVlIGlzIGNsZWFybHkgbm90IHNpZ25pZmljYW50LCBzdHJlbmd0aGVuaW5nIG91ciBiZWxpZWYgdGhhdCBPdmVyZGlzcGVyc2lvbiBpcyBub3QgYSBwcm9ibGVtLlxuYGBgIn0= -->
+<pre class="r"><code>## The resulting p-value is clearly not significant, strengthening our belief that Overdispersion is not a problem.</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -291,6 +407,29 @@ x2 = x[,3]
 model2  = glm(y~x1+x2, family = binomial())
 summary(model2)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxuZ2xtKGZvcm11bGEgPSB5IH4geDEgKyB4MiwgZmFtaWx5ID0gYmlub21pYWwoKSlcblxuRGV2aWFuY2UgUmVzaWR1YWxzOiBcbiAgICBNaW4gICAgICAgMVEgICBNZWRpYW4gICAgICAgM1EgICAgICBNYXggIFxuLTEuNDQwOCAgLTEuMjcxMyAgIDAuODAwMiAgIDAuOTM5MSAgIDEuMzM2NSAgXG5cbkNvZWZmaWNpZW50czpcbiAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fClcbihJbnRlcmNlcHQpIC0wLjE0NjU4NCAgIDIuMDIyOTY4ICAtMC4wNzIgICAgMC45NDJcbngxICAgICAgICAgICAwLjA3Nzg3MiAgIDAuMTI2NTgyICAgMC42MTUgICAgMC41MzhcbngyICAgICAgICAgIC0wLjAwOTkyNyAgIDAuMDcyMDkyICAtMC4xMzggICAgMC44OTBcblxuKERpc3BlcnNpb24gcGFyYW1ldGVyIGZvciBiaW5vbWlhbCBmYW1pbHkgdGFrZW4gdG8gYmUgMSlcblxuICAgIE51bGwgZGV2aWFuY2U6IDEzLjQ2MCAgb24gOSAgZGVncmVlcyBvZiBmcmVlZG9tXG5SZXNpZHVhbCBkZXZpYW5jZTogMTMuMDM0ICBvbiA3ICBkZWdyZWVzIG9mIGZyZWVkb21cbkFJQzogMTkuMDM0XG5cbk51bWJlciBvZiBGaXNoZXIgU2NvcmluZyBpdGVyYXRpb25zOiA0XG4ifQ== -->
+<pre><code>
+Call:
+glm(formula = y ~ x1 + x2, family = binomial())
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.4408  -1.2713   0.8002   0.9391   1.3365  
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept) -0.146584   2.022968  -0.072    0.942
+x1           0.077872   0.126582   0.615    0.538
+x2          -0.009927   0.072092  -0.138    0.890
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 13.460  on 9  degrees of freedom
+Residual deviance: 13.034  on 7  degrees of freedom
+AIC: 19.034
+
+Number of Fisher Scoring iterations: 4</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>

@@ -3,6 +3,8 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+## Example: Affairs
+
 ```{r}
 rm(list=ls())
 library(AER)
@@ -99,3 +101,27 @@ pchisq(summary(fit.od)$dispersion * fit$df.residual,
 ## The resulting p-value is clearly not significant, strengthening our belief that Overdispersion is not a problem.
 
 ```
+
+
+## Example: Artificial Data
+
+### Using R
+
+```{r}
+## data
+x = matrix(c(1, 10,25,1, 5, 27, 1, 8, 18,1,  11, 11,1, 12, 28, 1,14, 3,1,3, 6, 1,1, 30,1, 16, 26, 1,18, 22), byrow=T, ncol=3)
+y = c(0, 0, 0, 0, 1, 1, 1, 1, 1, 1)
+x1 = x[,2]
+x2 = x[,3]
+## logistic regression
+model2  = glm(y~x1+x2, family = binomial())
+summary(model2)
+```
+
+### Using cpp
+
+The results of cpp program are as follows:
+
+![](res_cpp.png)
+
+

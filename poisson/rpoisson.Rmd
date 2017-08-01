@@ -1,3 +1,8 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
 rm(list=ls())
 ## load dataset
 data(breslow.dat, package = "robust")
@@ -18,3 +23,4 @@ par(opar)
 fit <- glm(sumY ~ Base + Age + Trt, data = breslow.dat, family = poisson())
 summary(fit)
 detach(breslow.dat)
+```

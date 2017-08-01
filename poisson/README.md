@@ -14,6 +14,6 @@ In R, we can use the following command to implement poisson regression.
 glm(, family = binomial())
 ```
 
-More details refer to [rlogit.R](rlogit.R).
+More details refer to [rpoisson.R](rpoisson.R).
 
 ## Implement in GSL

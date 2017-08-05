@@ -149,7 +149,7 @@ int cuda_LU_solve(const double *A, const int m, double *B, const int nrhs)
   if (cublasH ) cublasDestroy(cublasH);
   if (cusolverH) cusolverDnDestroy(cusolverH);
 
-  cudaDeviceReset();
+  //cudaDeviceReset();
 
   return 0;
 }

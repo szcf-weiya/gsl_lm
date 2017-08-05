@@ -49,15 +49,14 @@ int main()
 
   // test ols
   double A[] = {1, 1, 1, 1, 2, 3, 5, 4};
-  double B[] = {1, 2, 0, 0};
+  double B[] = {1, 2, 3, 4};
   double coef[2];
-  double cov[2];
-  std::cout << "hello" << '\n';
+  double pvalue[2];
 
-  cuMultifit(A, 4, 2, B, coef, cov);
+  cuMultifit(A, 4, 2, B, coef, pvalue);
 
-  cout << coef[0] << endl
-       << coef[1] << endl;
+  cout << coef[0] << " " << pvalue[0] << endl
+       << coef[1] << " " << pvalue[1] << endl;
 
   gsl_rng_free(r);
   return 0;

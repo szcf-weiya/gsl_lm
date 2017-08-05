@@ -15,8 +15,8 @@ cuLUsolve.o: cuLUsolve.h cuLUsolve.cu
 cuMultifit.o: cuLUsolve.h cuMultifit.h cuMultifit.cu
 	nvcc -c cuMultifit.cu
 
-test.cpp: cuMultifit.h
-	nvcc -c test.o
+test.o: cuMultifit.h
+	nvcc -c test.cpp
 
 ols: cuLUsolve.o cuMultifit.o test.o
-	nvcc $^ -o $@ $(CUDAFLAGS) $(GSLFLAGS)
+	nvcc $^ -o $@ $(CUDAFLAGS) $(GSLFLAGS) -g

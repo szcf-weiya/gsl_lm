@@ -49,7 +49,7 @@ int main()
 
   // test ols
   double A[] = {1, 1, 1, 1, 2, 3, 5, 4};
-  double B[] = {1, 2, 3, 4};
+  double B[] = {1, 2, 0, 0};
   double coef[2];
   double cov[2];
   std::cout << "hello" << '\n';

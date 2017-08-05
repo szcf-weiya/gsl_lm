@@ -151,6 +151,5 @@ int cuda_LU_solve(const double *A, const int m, double *B, const int nrhs)
 
   cudaDeviceReset();
 
-
   return 0;
 }

@@ -1,5 +1,6 @@
 #include <iostream>
-#include "cuLUsolve.h"
+//#include "cuLUsolve.h"
+#include "cuMultifit.h"
 
 #include <gsl/gsl_rng.h>
 #include <gsl/gsl_matrix.h>
@@ -26,8 +27,10 @@ int main()
   gsl_rng_env_setup();
   T = gsl_rng_default;
   r = gsl_rng_alloc(T);
-  int N = 5;
 
+  // test inv(A)
+  /*
+  int N = 5;
   double *A = (double*)malloc(sizeof(double)*N*N);
   gsl_matrix *B = gsl_matrix_alloc(N, N);
   gsl_matrix_set_identity(B);
@@ -42,6 +45,19 @@ int main()
 
   cuda_LU_solve(A, N, B->data, N);
   printMatrix(B);
+  */
+
+  // test ols
+  double A[] = {1, 1, 1, 1, 2, 3, 5, 4};
+  double B[] = {1, 2, 3, 4};
+  double coef[2];
+  double cov[2];
+  std::cout << "hello" << '\n';
+
+  cuMultifit(A, 4, 2, B, coef, cov);
+
+  cout << coef[0] << endl
+       << coef[1] << endl;
 
   gsl_rng_free(r);
   return 0;
